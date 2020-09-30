@@ -32,6 +32,11 @@ app.put('/produtos/:id', (req, anws, next) => {
     anws.send(product) //JSON
 })
 
+app.delete('/produtos/:id', (req, anws, next) => {
+    const product = database.deleteProduct(req.params.id)
+    anws.send(product) //JSON
+})
+
 app.listen(port, ()=> {
     console.log(`Servidor executando na porta ${port}`)
 })
